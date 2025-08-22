@@ -1,0 +1,32 @@
+# FastAPI and web framework
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+python-multipart==0.0.9
+
+# Data validation and serialization  
+pydantic==2.8.2
+
+# Document parsing
+pypdf==4.2.0
+python-docx==1.1.2
+pylatexenc==2.10
+
+# NLP and embeddings
+spacy==3.7.5
+sentence-transformers==3.0.1
+
+# Vector database
+chromadb==0.5.4
+
+# Scientific computing
+numpy==1.26.4
+scikit-learn==1.5.1
+
+# AI/LLM integration
+openai>=1.0.0
+
+# Logging and utilities
+python-json-logger==2.0.7
+
+# Optional: Database support (uncomment if using PostgreSQL)
+# psycopg2-binary==2.9

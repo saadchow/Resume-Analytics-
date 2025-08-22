@@ -1,0 +1,12 @@
+# render.yaml - Render.com deployment configuration
+services:
+  - type: web
+    name: resume-analytica-api
+    env: docker
+    plan: starter  # or free
+    autoDeploy: true
+    healthCheckPath: /health
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false  # Set manually in Render dashboard
+      -
