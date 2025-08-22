@@ -1,13 +1,14 @@
-import React, { useState, useCallback, useRef } from 'react';
-import { CloudArrowUpIcon, DocumentTextIcon, SparklesIcon } from '@heroicons/react/24/outline';
-import { AnalysisResult, FileUploadState } from './types';
-import ScoreDisplay from './components/ScoreDisplay';
-import KeywordAnalysis from './components/KeywordAnalysis';
-import SuggestionsDisplay from './components/SuggestionsDisplay';
-import SemanticMatches from './components/SemanticMatches';
-import LaTeXDisplay from './components/LaTeXDisplay';
+"use client";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+import React, { useState, useCallback, useRef } from "react";
+import { CloudArrowUpIcon, DocumentTextIcon, SparklesIcon } from "@heroicons/react/24/outline";
+import { AnalysisResult, FileUploadState } from "@/types";
+import ScoreDisplay from "@/components/ScoreDisplay";
+import KeywordAnalysis from "@/components/KeywordAnalysis";
+import SuggestionsDisplay from "@/components/SuggestionsDisplay";
+import SemanticMatches from "@/components/SemanticMatches";
+import LatexDisplay from "@/components/LatexDisplay"; // match the actual filename
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 export default function HomePage() {
   // State management

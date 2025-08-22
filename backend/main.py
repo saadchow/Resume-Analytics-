@@ -22,14 +22,15 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# CORS middleware - restrict in production
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Restrict to your frontend domain in production
+    allow_origins=[os.getenv("FRONTEND_ORIGIN","*")], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 class AnalyzeResponse(BaseModel):
     score: int

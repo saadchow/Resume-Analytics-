@@ -8,6 +8,11 @@ from typing import List, Dict, Tuple, Set
 import logging
 import re
 import os
+persist_dir = os.getenv("CHROMA_DIR", "./chroma_db")
+_chroma_client = chromadb.Client(Settings(
+    chroma_db_impl="duckdb+parquet",
+    persist_directory=persist_dir
+))
 
 logger = logging.getLogger(__name__)
 

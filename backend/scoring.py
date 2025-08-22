@@ -1,5 +1,6 @@
 from typing import List, Tuple, Dict
 import logging
+from datetime import datetime
 import re
 
 logger = logging.getLogger(__name__)
@@ -200,7 +201,10 @@ def _extract_years_bonus(jd_text: str, resume_text: str) -> float:
                 resume_years.extend([int(match) for match in matches])
         
         # Calculate experience from date ranges
-        current_year = 2025
+        # scoring.py
+
+        current_year = datetime.now().year
+
         date_ranges = re.findall(r'(\d{4})\s*-\s*(?:present|current|(\d{4}))', resume_text.lower())
         for start_year, end_year in date_ranges:
             start = int(start_year)

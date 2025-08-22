@@ -1,94 +1,23 @@
-// tailwind.config.js
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-    content: [
-      './pages/**/*.{js,ts,jsx,tsx,mdx}',
-      './components/**/*.{js,ts,jsx,tsx,mdx}',
-      './app/**/*.{js,ts,jsx,tsx,mdx}',
-    ],
-    theme: {
-      extend: {
-        colors: {
-          primary: {
-            50: '#eff6ff',
-            500: '#3b82f6',
-            600: '#2563eb',
-            700: '#1d4ed8',
-          },
-          secondary: {
-            50: '#faf5ff',
-            500: '#a855f7',
-            600: '#9333ea',
-            700: '#7c3aed',
-          },
-        },
-        animation: {
-          'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-          'bounce-subtle': 'bounce 2s infinite',
-        },
-      },
-    },
-    plugins: [],
-  }
-  
-  // postcss.config.js
-  module.exports = {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
-    },
-  }
-  
-  // next.config.js
-  /** @type {import('next').NextConfig} */
-  const nextConfig = {
-    experimental: {
-      appDir: true,
-    },
-    env: {
-      NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000',
-    },
-  }
-  
-  module.exports = nextConfig
-  
-  // tsconfig.json
-  {
+{
     "compilerOptions": {
-      "target": "es5",
-      "lib": ["dom", "dom.iterable", "es6"],
-      "allowJs": true,
+      "target": "ES2020",
+      "lib": ["dom", "dom.iterable", "ES2020"],
+      "allowJs": false,
       "skipLibCheck": true,
       "strict": true,
       "noEmit": true,
       "esModuleInterop": true,
-      "module": "esnext",
-      "moduleResolution": "bundler",
+      "module": "ESNext",
+      "moduleResolution": "Bundler",
       "resolveJsonModule": true,
       "isolatedModules": true,
       "jsx": "preserve",
       "incremental": true,
-      "plugins": [
-        {
-          "name": "next"
-        }
-      ],
-      "paths": {
-        "@/*": ["./app/*"]
-      }
+      "baseUrl": ".",
+      "paths": { "@/*": ["app/*"] },
+      "plugins": [{ "name": "next" }]
     },
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
     "exclude": ["node_modules"]
   }
   
-  // .env.local (example)
-  NEXT_PUBLIC_API_URL=http://localhost:8000
-  # NEXT_PUBLIC_API_URL=https://your-api.onrender.com  # Production
-  
-  // .env.example
-  # Frontend Configuration
-  NEXT_PUBLIC_API_URL=http://localhost:8000
-  
-  # Backend Configuration (for reference)
-  OPENAI_API_KEY=your-openai-api-key
-  OPENAI_MODEL=gpt-4

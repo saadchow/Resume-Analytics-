@@ -5,7 +5,6 @@ from openai import OpenAI
 
 logger = logging.getLogger(__name__)
 
-# Initialize OpenAI client lazily
 _client = None
 
 def _get_client():
@@ -19,9 +18,7 @@ def _get_client():
         _client = OpenAI(api_key=api_key)
     return _client
 
-# Model selection - can be overridden with environment variable
-DEFAULT_MODEL = os.getenv("OPENAI_MODEL", "gpt-4")  # Use gpt-4 as fallback since gpt-5 may not be available
-
+DEFAULT_MODEL = os.getenv("OPENAI_MODEL", "gpt-5")  
 def _trim_text(text: str, max_chars: int = 4000) -> str:
     """Trim text to fit within token limits while preserving meaning."""
     if not text:
